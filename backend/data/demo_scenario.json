@@ -1,0 +1,338 @@
+{
+  "scenario_id": "trishuli-nepal-2026-08-26",
+  "location": {
+    "name": "Trishuli",
+    "region": "Rasuwa / Dhading, Bagmati Province",
+    "country": "Nepal",
+    "lat": 27.851,
+    "lng": 85.184,
+    "description": "Trishuli River corridor along the Prithvi Highway (H2)"
+  },
+  "default_aoi": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [85.239, 27.851],
+        [85.2348, 27.8594],
+        [85.2229, 27.8666],
+        [85.2051, 27.8713],
+        [85.184, 27.873],
+        [85.1629, 27.8713],
+        [85.1451, 27.8666],
+        [85.1332, 27.8594],
+        [85.129, 27.851],
+        [85.1332, 27.8426],
+        [85.1451, 27.8354],
+        [85.1629, 27.8307],
+        [85.184, 27.829],
+        [85.2051, 27.8307],
+        [85.2229, 27.8354],
+        [85.2348, 27.8426],
+        [85.239, 27.851]
+      ]
+    ]
+  },
+  "flood": {
+    "flood_mapped_area_km2": 24.6,
+    "high_confidence_km2": 14.2,
+    "borderline_km2": 7.1,
+    "uncertain_km2": 3.3,
+    "source": "Sentinel-1 change detection (simulated)"
+  },
+  "ai": {
+    "model_name": "aquascope-floodnet",
+    "model_version": "v0.9.2",
+    "architecture": "Siamese SNUNet-style change detection",
+    "threshold": 0.52,
+    "metrics": {
+      "iou": 0.78,
+      "dice": 0.876,
+      "precision": 0.84,
+      "recall": 0.91,
+      "f1": 0.874
+    }
+  },
+  "infrastructure": {
+    "roads": {
+      "total_roads_km": 82.4,
+      "potentially_affected_roads_km": 17.6,
+      "potentially_affected_roads_percentage": 21.4
+    },
+    "buildings": {
+      "total_buildings": 4250,
+      "potentially_affected_buildings": 680,
+      "total_building_footprint_m2": 510000,
+      "potentially_affected_building_footprint_m2": 82000,
+      "potentially_affected_buildings_percentage": 16.0
+    },
+    "bridges": {
+      "total_bridges": 38,
+      "potentially_affected_bridges": 11,
+      "potentially_affected_bridges_percentage": 28.9
+    }
+  },
+  "connectivity": {
+    "total_settlements": 124,
+    "connected_settlements": 97,
+    "potentially_road_disconnected_settlements": 27,
+    "affected_road_segments": 41,
+    "alternative_routes_available": 14,
+    "alternative_routes_unavailable": 13,
+    "settlements": [
+      {
+        "settlement_id": "stl-001",
+        "name": "Riverside Bazar",
+        "location": { "lat": 27.856, "lng": 85.19 },
+        "type": "town",
+        "population": 12400,
+        "status": "connected",
+        "relevant_town": "Trishuli Bazar",
+        "relevant_hospital": "Trishuli District Hospital",
+        "affected_segments": 0,
+        "alternate_route_available": null,
+        "before_route_distance_km": 3.2,
+        "after_route_distance_km": 3.2,
+        "uncertainty": "higher"
+      },
+      {
+        "settlement_id": "stl-002",
+        "name": "North Gaun",
+        "location": { "lat": 27.864, "lng": 85.172 },
+        "type": "village",
+        "population": 1840,
+        "status": "potentially road-disconnected",
+        "relevant_town": "Galchhi",
+        "relevant_hospital": "Dhading District Hospital",
+        "affected_segments": 3,
+        "alternate_route_available": true,
+        "before_route_distance_km": 6.8,
+        "after_route_distance_km": 11.4,
+        "uncertainty": "higher"
+      },
+      {
+        "settlement_id": "stl-003",
+        "name": "East Khola",
+        "location": { "lat": 27.838, "lng": 85.166 },
+        "type": "hamlet",
+        "population": 320,
+        "status": "potentially road-disconnected",
+        "relevant_town": "Dhunche",
+        "relevant_hospital": "Rasuwa Community Hospital",
+        "affected_segments": 4,
+        "alternate_route_available": false,
+        "before_route_distance_km": 9.1,
+        "after_route_distance_km": null,
+        "uncertainty": "borderline"
+      },
+      {
+        "settlement_id": "stl-004",
+        "name": "West Danda",
+        "location": { "lat": 27.847, "lng": 85.205 },
+        "type": "village",
+        "population": 2610,
+        "status": "connected",
+        "relevant_town": "Malekhu",
+        "relevant_hospital": "Dhading District Hospital",
+        "affected_segments": 1,
+        "alternate_route_available": null,
+        "before_route_distance_km": 4.4,
+        "after_route_distance_km": 4.4,
+        "uncertainty": "higher"
+      },
+      {
+        "settlement_id": "stl-005",
+        "name": "Corridor Tole",
+        "location": { "lat": 27.859, "lng": 85.198 },
+        "type": "town",
+        "population": 9800,
+        "status": "potentially road-disconnected",
+        "relevant_town": "Trishuli Bazar",
+        "relevant_hospital": "Trishuli District Hospital",
+        "affected_segments": 2,
+        "alternate_route_available": true,
+        "before_route_distance_km": 2.6,
+        "after_route_distance_km": 5.9,
+        "uncertainty": "higher"
+      },
+      {
+        "settlement_id": "stl-006",
+        "name": "South Chaur",
+        "location": { "lat": 27.841, "lng": 85.181 },
+        "type": "village",
+        "population": 1450,
+        "status": "connected",
+        "relevant_town": "Gajuri",
+        "relevant_hospital": "Gajuri Primary Health Centre",
+        "affected_segments": 0,
+        "alternate_route_available": null,
+        "before_route_distance_km": 5.1,
+        "after_route_distance_km": 5.1,
+        "uncertainty": "higher"
+      },
+      {
+        "settlement_id": "stl-007",
+        "name": "Hill Nagar",
+        "location": { "lat": 27.866, "lng": 85.195 },
+        "type": "hamlet",
+        "population": 410,
+        "status": "connected",
+        "relevant_town": "Galchhi",
+        "relevant_hospital": "Dhading District Hospital",
+        "affected_segments": 0,
+        "alternate_route_available": null,
+        "before_route_distance_km": 7.7,
+        "after_route_distance_km": 7.7,
+        "uncertainty": "higher"
+      },
+      {
+        "settlement_id": "stl-008",
+        "name": "Riverbank Pani",
+        "location": { "lat": 27.845, "lng": 85.174 },
+        "type": "village",
+        "population": 1980,
+        "status": "potentially road-disconnected",
+        "relevant_town": "Malekhu",
+        "relevant_hospital": "Dhading District Hospital",
+        "affected_segments": 3,
+        "alternate_route_available": false,
+        "before_route_distance_km": 8.3,
+        "after_route_distance_km": null,
+        "uncertainty": "borderline"
+      }
+    ]
+  },
+  "validation": {
+    "reference_source": "EMSR927 (Copernicus Emergency Management Service)",
+    "reference_area_km2": 26.9,
+    "model_area_km2": 24.6,
+    "overlap_km2": 19.8,
+    "metrics": {
+      "iou": 0.78,
+      "dice": 0.876,
+      "precision": 0.84,
+      "recall": 0.91,
+      "f1": 0.874
+    },
+    "comparison": [
+      { "name": "Flooded area", "model": 24.6, "reference": 26.9, "unit": "km²" },
+      { "name": "High-confidence extent", "model": 14.2, "reference": 15.8, "unit": "km²" },
+      { "name": "Affected road length", "model": 17.6, "reference": 19.2, "unit": "km" },
+      { "name": "Potentially affected settlements", "model": 27, "reference": 31, "unit": "count" }
+    ],
+    "interpretation": "The model maps a slightly smaller flood extent than the EMSR927 reference. Differences concentrate along corridor edges where SAR layover and shadow reduce confidence. Disagreement does not automatically mean the model is wrong — reference mapping is not absolute ground truth and is produced under its own assumptions and timing constraints."
+  },
+  "flood_mask": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": { "id": "flood-1", "name": "Flood extent 1 · high confidence", "category": "high", "area_km2": 7.9 },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [[
+            [85.188, 27.86], [85.196, 27.865], [85.204, 27.862],
+            [85.206, 27.856], [85.198, 27.852], [85.19, 27.855], [85.188, 27.86]
+          ]]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": { "id": "flood-2", "name": "Flood extent 2 · high confidence", "category": "high", "area_km2": 6.3 },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [[
+            [85.16, 27.841], [85.168, 27.846], [85.176, 27.843],
+            [85.177, 27.838], [85.169, 27.835], [85.161, 27.838], [85.16, 27.841]
+          ]]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": { "id": "flood-3", "name": "Flood extent 3 · borderline confidence", "category": "borderline", "area_km2": 3.8 },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [[
+            [85.206, 27.851], [85.212, 27.855], [85.218, 27.852],
+            [85.219, 27.848], [85.212, 27.846], [85.206, 27.849], [85.206, 27.851]
+          ]]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": { "id": "flood-4", "name": "Flood extent 4 · borderline confidence", "category": "borderline", "area_km2": 3.3 },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [[
+            [85.177, 27.866], [85.183, 27.87], [85.189, 27.867],
+            [85.19, 27.863], [85.183, 27.861], [85.177, 27.863], [85.177, 27.866]
+          ]]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": { "id": "flood-5", "name": "Flood extent 5 · terrain-uncertain confidence", "category": "uncertain", "area_km2": 3.3 },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [[
+            [85.194, 27.834], [85.2, 27.838], [85.206, 27.835],
+            [85.207, 27.831], [85.2, 27.829], [85.194, 27.831], [85.194, 27.834]
+          ]]
+        }
+      }
+    ]
+  },
+  "limitations": [
+    "Terrain uncertainty: steep slopes in the corridor cause SAR layover and shadow, reducing detection reliability.",
+    "Optical imagery is unaffected by clouds in this scenario, but cloud cover would degrade any optical cross-check.",
+    "Reference data (EMSR927) has its own production timeline and mapping conventions; it is a validation reference, not ground truth.",
+    "Urban areas with dense building cover may under-report flood extent due to double-bounce scattering.",
+    "Results are preliminary and should be verified with local field information before operational use.",
+    "DEMO / SIMULATED DATA: this response is produced by mock services and contains no real satellite observations."
+  ],
+  "processing_logs": {
+    "data_acquisition": [
+      "Querying Sentinel-1 catalogue for relative orbit 143 (ascending)…",
+      "Before scene acquired: Sentinel-1A IW GRD, 12 days prior to event",
+      "Co-event scene (event date): unavailable — downlink gap during the event window",
+      "Fallback: next suitable scene automatically selected from the same relative orbit (Sentinel-1B, +1 day)",
+      "Sentinel-2 availability check: 1 cloud-free scene (optical cross-reference)",
+      "Copernicus DEM GLO-30 coverage: 100% of AOI",
+      "OpenStreetMap extract: roads, buildings, bridges, settlements"
+    ],
+    "preprocessing": [
+      "SAR preprocessing: thermal noise removal, orbit file application, calibration to sigma-nought",
+      "Terrain correction with Copernicus DEM (range-Doppler method)",
+      "Before/after stack preparation and co-registration"
+    ],
+    "flood_mapping": [
+      "Siamese change detection (SNUNet-style) over the before/after pair",
+      "Flood probability map generated",
+      "Validation-selected threshold applied: 0.52",
+      "Binary flood mask generated — flood mapped area: 24.6 km²"
+    ],
+    "infrastructure_analysis": [
+      "OSM infrastructure overlay: 82.4 km of roads, 4,250 buildings, 38 bridges in AOI",
+      "Spatial intersection with the flood mask",
+      "Potentially affected: 17.6 km of roads, 680 buildings, 11 bridges"
+    ],
+    "connectivity_analysis": [
+      "Road network graph constructed from OSM data",
+      "Affected road segments removed; connectivity recalculated",
+      "27 settlements identified as potentially road-disconnected",
+      "Alternative routes evaluated: 14 available, 13 unavailable"
+    ],
+    "validation": [
+      "Comparison against EMSR927 reference mapping",
+      "Metrics: IoU 0.78, Dice 0.876, Precision 0.84, Recall 0.91, F1 0.874"
+    ]
+  },
+  "processing_durations_ms": {
+    "data_acquisition": 1840,
+    "preprocessing": 960,
+    "flood_mapping": 3210,
+    "infrastructure_analysis": 1380,
+    "connectivity_analysis": 1120,
+    "validation": 640
+  },
+  "disclaimer": "DEMO / SIMULATED DATA — all values in this response are generated by mock services for interface validation. They do not represent real satellite observations, real flood extents, or real damage assessments. Flood overlap does not automatically mean destruction; an affected road does not automatically mean a settlement is cut off."
+}

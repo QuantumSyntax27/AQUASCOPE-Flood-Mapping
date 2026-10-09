@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+
+# Environment (never commit credentials)
+.env
+
+# Generated / downloaded data
+data/*.geojson
+data/*.tif
+data/*.zip
+!data/demo_scenario.json
+
+# Model artifacts (future stage)
+models/*.pt
+models/*.pth
+models/*.safetensors
+!.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,45 @@
+# Python virtual environments
+.venv/
+venv/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment files (never commit credentials)
+.env
+*.env
+
+# Generated / downloaded data
+data/*.geojson
+data/*.tif
+data/*.zip
+!data/demo_scenario.json
+
+# Model artifacts
+models/*.pt
+models/*.pth
+models/*.safetensors
+!.gitkeep
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Frontend build output
+dist/
+node_modules/
+
+# FastAPI / Python
+.pytest_cache/
+.backend_cache
+
+# IDE specific
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Output logs
+*.log
