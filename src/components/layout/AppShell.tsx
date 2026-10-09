@@ -4,6 +4,7 @@ import { Menu, Play, Plus, X } from 'lucide-react';
 import { useNavigate, Outlet, useLocation } from 'react-router-dom';
 import { findNavItem, Logo, SidebarContent } from './Sidebar';
 import { classNames } from '../../utils/geo';
+import ChatPanel from '../components/chat/ChatPanel';
 
 function HeaderBar({
   onToggleSidebar,
@@ -55,6 +56,14 @@ function HeaderBar({
         Demo Mode
       </button>
       <button
+        className="inline-flex items-center gap-1.5 rounded-lg bg-indigo-600 px-3.5 h-9 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500"
+        onClick={() => setChatOpen(true)}
+        aria-label="Open AI assistant"
+      >
+        <Info size={14} />
+        AI
+      </button>
+      <button
         className="inline-flex items-center gap-1.5 rounded-lg bg-brand-600 px-3.5 h-9 text-xs font-semibold text-white shadow-sm hover:bg-brand-500"
         onClick={() => navigate('/setup')}
       >
@@ -78,6 +87,7 @@ function HeaderBar({
 export function AppShell() {
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [chatOpen, setChatOpen] = useState(false);
 
   return (
     <div className="flex h-screen flex-col overflow-hidden bg-navy-950">
@@ -143,6 +153,7 @@ export function AppShell() {
         {/* Main viewport */}
         <main className="min-w-0 flex-1 overflow-hidden">
           <Outlet />
+          {chatOpen && <ChatPanel />}
         </main>
       </div>
     </div>
