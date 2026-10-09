@@ -96,7 +96,7 @@ export function ChatPanel() {
                 'self-' + (msg.isUser ? 'end' : 'start')
               )}
             >
-              <p className="whitespace-pre-wrap">{msg.text}</p>
+              <p className="whitespace-pre-wrap text-[12px] leading-relaxed">{msg.text}</p>
             </div>
           ))}
 
