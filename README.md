@@ -34,24 +34,24 @@ Flood events cause significant damage to infrastructure, disrupt road connectivi
 
 | Feature | Status | Details |
 | --- | --- | --- |
-| Sentinel-1 scene discovery | Implemented | Mock service with REAL/FALLBACK source tracking |
-| Sentinel-1 preprocessing | Implemented | Mock preprocessing pipeline |
-| AI flood mapping | Implemented | Mock flood detection with configurable threshold |
-| Infrastructure impact analysis | Implemented | Mock OSM/ohsome overlay |
-| Road connectivity analysis | Implemented | Mock NetworkX-based connectivity |
-| Validation against references | Implemented | Mock EMSR927 comparison |
-| Real Copernicus API integration | Planned | Requires API credentials |
-| Real OSM/ohsome queries | Planned | Requires network access |
-| Real NetworkX connectivity | Planned | Requires road graph data |
-| Three.js 3D visualization | Implemented | Demo scene rendering |
-| Frontend user interface | Implemented | React + Vite + Leaflet dashboard |
+| Sentinel-1 scene discovery | Mock/Demo | Mock service with REAL/FALLBACK source tracking — deterministic fallback when real API unavailable |
+| Sentinel-1 preprocessing | Mock/Demo | Mock preprocessing pipeline — falls back to deterministic mock when real data/credentials unavailable |
+| AI flood mapping | Mock/Demo | Mock flood detection with configurable threshold — simulated AI outcomes for interface validation |
+| Infrastructure impact analysis | Mock/Demo | Mock OSM/ohsome overlay — simulated infrastructure data for demo interface |
+| Road connectivity analysis | Mock/Demo | Mock NetworkX-based connectivity — simulated road graph for demo interface |
+| Validation against references | Mock/Demo | Mock EMSR927 comparison — simulated reference data for interface validation |
+| Real Copernicus API integration | Planned | Requires API credentials and network access |
+| Real OSM/ohsome queries | Planned | Requires network access and ohsome API integration |
+| Real NetworkX connectivity | Planned | Requires road graph data and NetworkX integration |
+| Three.js 3D visualization | Implemented | Demo scene rendering — real Three.js code with mock data input |
+| Frontend user interface | Implemented | React + Vite + Leaflet dashboard — real frontend code with mock data |
 
 ## Frontend Technology Stack
 
 - **React 18** with functional components and hooks
 - **Vite** build tool and dev server
 - **React Router** for client-side routing
-- **Leaflet** + **react-leafet** for interactive maps
+- **Leaflet** + **react-leaflet** for interactive maps
 - **Recharts** for data visualization
 - **Framer Motion** for animations
 - **three.js** + **@react-three/fiber** for 3D content
@@ -163,7 +163,7 @@ AQUASCOPE/
 The backend requires the following packages. Most can be installed via `pip`:
 
 ```bash
-pip install -r backend\requirements.txt
+pip install -r backend/requirements.txt
 ```
 
 The `requirements.txt` includes:
@@ -232,12 +232,11 @@ The `package.json` includes React, Leaflet, Recharts, three.js, and TailwindCSS 
 
 ### Frontend Setup
 
-1. **Navigate to the frontend directory**:
+1. **Navigate to the project root**:
 
    ```powershell
-   cd ..\..\  # From backend, go to project root
-   # or
-cd "C:\Users\chhab\OneDrive\Documents\New OpenCode Project"
+   # From anywhere, go to project root
+   cd "C:\Users\chhab\OneDrive\Documents\New OpenCode Project"
    ```
 
 2. **Install npm dependencies**:
@@ -252,7 +251,7 @@ cd "C:\Users\chhab\OneDrive\Documents\New OpenCode Project"
    npm run dev
    ```
 
-   The frontend will be available at `http://localhost:5173` (or the port specified in vite.config.ts).
+   The frontend will be available at `http://localhost:5173` (or the port specified in `vite.config.ts`).
 
 ### Running the Full Application
 
@@ -469,7 +468,7 @@ This tracking is propagated through every stage of the pipeline, from satellite 
 
 | Symptom | Cause | Solution |
 | --- | --- | --- |
-| Backend won't start | Missing Python dependencies | Run `pip install -r backend\requirements.txt` |
+| Backend won't start | Missing Python dependencies | Run `pip install -r backend/requirements.txt` |
 | Frontend won't compile | Missing Node.js dependencies | Run `npm install` in the project root |
 | CORS errors | Frontend running on different port | Configure `CORS_ORIGINS` in `.env` or run both on default ports |
 | Satellite discovery returns no scenes | No real API credentials | The mock fallback will automatically engage |
