@@ -143,10 +143,10 @@ export function About() {
             <CardHeader title="Team" subtitle="Hackathon build crew" action={<Users size={16} className="text-navy-400" />} />
             <div className="grid gap-3 px-5 py-4 sm:grid-cols-2 lg:grid-cols-4">
               {[
-                { name: 'A. Sharma', role: 'Frontend & GIS UX' },
-                { name: 'R. Thapa', role: 'AI / Segmentation' },
-                { name: 'S. Maharjan', role: 'Backend & Data' },
-                { name: 'M. Gurung', role: 'Domain & Validation' },
+                { name: 'Hitesh Chhabra', role: 'Team Leader & Full-Stack Developer' },
+                { name: 'Kalpana Prasad', role: 'Development Support & Solution Research' },
+                { name: 'Mohit Bajiya', role: 'Technical Research, Feasibility & Testing' },
+                { name: 'Nishtha', role: 'Presentation & Pitching Lead' },
               ].map((m) => (
                 <div key={m.name} className="flex items-center gap-3 rounded-xl border border-navy-800 p-3">
                   <span className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-600 text-sm font-bold text-white">
