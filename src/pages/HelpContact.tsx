@@ -288,6 +288,17 @@ export function HelpContact() {
                   </a>
                 </div>
               )}
+              <hr className="my-4 border-navy-800/50" />
+              <p className="text-[10px] text-navy-400">
+                © 2026 AQUASCOPE. All rights reserved. The original project design,
+                original source code, documentation, and branding created for
+                AQUASCOPE are claimed as the intellectual work of the AQUASCOPE
+                project team, subject to applicable law and the rights and
+                licences of any third-party materials used. Unauthorized copying,
+                redistribution, or commercial use of original AQUASCOPE materials
+                is not permitted without appropriate authorization, except where
+                permitted by applicable law or an applicable third-party licence.
+              </p>
             </div>
           </Card>
         </motion.div>
