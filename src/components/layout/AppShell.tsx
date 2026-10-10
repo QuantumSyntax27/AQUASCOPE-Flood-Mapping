@@ -56,6 +56,14 @@ function HeaderBar({
         Demo Mode
       </button>
       <button
+        className="hidden md:inline-flex items-center gap-1.5 rounded-lg border border-navy-700 bg-navy-800 px-3 h-9 text-xs font-semibold text-navy-100 shadow-sm hover:bg-navy-700"
+        onClick={() => navigate('/help-contact')}
+        aria-label="Help and contact"
+      >
+        <Shield size={13} />
+        Help
+      </button>
+      <button
         className="inline-flex items-center gap-1.5 rounded-lg bg-indigo-600 px-3.5 h-9 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500"
         onClick={() => setChatOpen(true)}
         aria-label="Open AI assistant"
@@ -155,6 +163,43 @@ export function AppShell() {
           <Outlet />
           {chatOpen && <ChatPanel />}
         </main>
+
+        {/* Footer */}
+        <footer className="border-t border-navy-800 bg-navy-950/95 py-3 text-[11px] text-navy-400">
+          <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center">
+            <div className="flex items-center gap-2">
+              <span className="font-medium text-white">AQUASCOPE</span>
+              <span className="text-navy-400">· Satellite-Powered Flood Impact Mapping & Disaster Intelligence</span>
+            </div>
+            <div className="flex items-center gap-4">
+              <Link
+                href="/about"
+                className="hover:text-navy-300 transition-colors text-[11px]"
+                aria-label="About AQUASCOPE"
+              >
+                About
+              </Link>
+              <Link
+                href="/help-contact"
+                className="hover:text-navy-300 transition-colors text-[11px]"
+                aria-label="Help and contact"
+              >
+                Help
+              </Link>
+            </div>
+          </div>
+          <div className="mt-2 sm:mt-0 text-center sm:flex justify-between">
+            <span className="text-[10px] copyright">© 2026 AQUASCOPE. All rights reserved.</span>
+            <a
+              href="/help-contact"
+              className="hover:text-navy-300 transition-colors text-[10px]"
+              aria-label="Full copyright notice"
+            >
+              Full notice
+            </a>
+          </div>
+        </footer>
+      </div>
       </div>
     </div>
   );

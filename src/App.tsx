@@ -17,6 +17,7 @@ import { HowItWorks } from './pages/HowItWorks';
 import { Reports } from './pages/Reports';
 import { About } from './pages/About';
 import { DemoMode } from './pages/DemoMode';
+import { HelpContact } from './pages/HelpContact';
 import { NotFound } from './pages/NotFound';
 
 export default function App() {
@@ -39,6 +40,7 @@ export default function App() {
               <Route path="/how-it-works" element={<HowItWorks />} />
               <Route path="/reports" element={<Reports />} />
               <Route path="/about" element={<About />} />
+              <Route path="/help-contact" element={<HelpContact />} />
               <Route path="/demo" element={<DemoMode />} />
               <Route path="/404" element={<NotFound />} />
               <Route path="*" element={<Navigate to="/404" replace />} />
