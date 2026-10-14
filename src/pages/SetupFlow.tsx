@@ -325,7 +325,7 @@ export function SetupFlow() {
 
       <div className="flex min-h-0 flex-1">
         {/* Left: step content */}
-        <div className="w-full shrink-0 overflow-y-auto border-r border-navy-800 lg:w-[440px] xl:w-[480px]">
+        <div className="w-full min-h-0 overflow-y-auto border-r border-navy-800 lg:w-[440px] xl:w-[480px]">
           <motion.div
             key={step}
             initial={{ opacity: 0, x: -14 }}

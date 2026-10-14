@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Menu, Play, Plus, X } from 'lucide-react';
-import { useNavigate, Outlet, useLocation } from 'react-router-dom';
+import { Menu, Play, Plus, X, Shield, Info } from 'lucide-react';
+import { useNavigate, Outlet, useLocation, Link } from 'react-router-dom';
 import { findNavItem, Logo, SidebarContent } from './Sidebar';
 import { classNames } from '../../utils/geo';
-import ChatPanel from '../components/chat/ChatPanel';
 
 function HeaderBar({
   onToggleSidebar,
@@ -57,22 +56,6 @@ function HeaderBar({
       </button>
       <button
         className="hidden md:inline-flex items-center gap-1.5 rounded-lg border border-navy-700 bg-navy-800 px-3 h-9 text-xs font-semibold text-navy-100 shadow-sm hover:bg-navy-700"
-        onClick={() => navigate('/help-contact')}
-        aria-label="Help and contact"
-      >
-        <Shield size={13} />
-        Help
-      </button>
-      <button
-        className="inline-flex items-center gap-1.5 rounded-lg bg-indigo-600 px-3.5 h-9 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500"
-        onClick={() => setChatOpen(true)}
-        aria-label="Open AI assistant"
-      >
-        <Info size={14} />
-        AI
-      </button>
-      <button
-        className="inline-flex items-center gap-1.5 rounded-lg bg-brand-600 px-3.5 h-9 text-xs font-semibold text-white shadow-sm hover:bg-brand-500"
         onClick={() => navigate('/setup')}
       >
         <Plus size={14} />
@@ -95,7 +78,6 @@ function HeaderBar({
 export function AppShell() {
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [chatOpen, setChatOpen] = useState(false);
 
   return (
     <div className="flex h-screen flex-col overflow-hidden bg-navy-950">
@@ -161,46 +143,42 @@ export function AppShell() {
         {/* Main viewport */}
         <main className="min-w-0 flex-1 overflow-hidden">
           <Outlet />
-          {chatOpen && <ChatPanel />}
         </main>
-
-        {/* Footer */}
-        <footer className="border-t border-navy-800 bg-navy-950/95 py-3 text-[11px] text-navy-400">
-          <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center">
-            <div className="flex items-center gap-2">
-              <span className="font-medium text-white">AQUASCOPE</span>
-              <span className="text-navy-400">· Satellite-Powered Flood Impact Mapping & Disaster Intelligence</span>
-            </div>
-            <div className="flex items-center gap-4">
-              <Link
-                href="/about"
-                className="hover:text-navy-300 transition-colors text-[11px]"
-                aria-label="About AQUASCOPE"
-              >
-                About
-              </Link>
-              <Link
-                href="/help-contact"
-                className="hover:text-navy-300 transition-colors text-[11px]"
-                aria-label="Help and contact"
-              >
-                Help
-              </Link>
-            </div>
+      </div>
+      <footer className="border-t border-navy-800 bg-navy-950/95 py-3 text-[11px] text-navy-400">
+        <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center">
+          <div className="flex items-center gap-2">
+            <span className="font-medium text-white">AQUASCOPE</span>
+            <span className="text-navy-400">· Satellite-Powered Flood Impact Mapping & Disaster Intelligence</span>
           </div>
-          <div className="mt-2 sm:mt-0 text-center sm:flex justify-between">
-            <span className="text-[10px] copyright">© 2026 AQUASCOPE. All rights reserved.</span>
-            <a
-              href="/help-contact"
-              className="hover:text-navy-300 transition-colors text-[10px]"
-              aria-label="Full copyright notice"
+          <div className="flex items-center gap-4">
+            <Link
+              to="/about"
+              className="hover:text-navy-300 transition-colors text-[11px]"
+              aria-label="About AQUASCOPE"
             >
-              Full notice
-            </a>
+              About
+            </Link>
+            <Link
+              to="/setup"
+              className="hover:text-navy-300 transition-colors text-[11px]"
+              aria-label="Setup Analysis"
+            >
+              Setup
+            </Link>
           </div>
-        </footer>
-      </div>
-      </div>
+        </div>
+        <div className="mt-2 sm:mt-0 text-center sm:flex justify-between">
+          <span className="text-[10px] copyright">© 2026 AQUASCOPE. All rights reserved.</span>
+          <a
+            href="/about"
+            className="hover:text-navy-300 transition-colors text-[10px]"
+            aria-label="Full copyright notice"
+          >
+            Full notice
+          </a>
+        </div>
+      </footer>
     </div>
   );
 }
