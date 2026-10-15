@@ -20,7 +20,11 @@ import tempfile
 from pathlib import Path
 
 import numpy as np
-import torch
+
+try:
+    import torch
+except ImportError:
+    torch = None
 from rasterio.transform import from_bounds, Affine
 from rasterio.crs import CRS
 from rasterio.errors import RasterioError
@@ -67,11 +71,13 @@ def _is_checkpoint_compatible(checkpoint: object) -> bool:
     return hasattr(checkpoint, "forward") and callable(checkpoint.forward)
 
 
-def _try_load_checkpoint() -> torch.nn.Module | None:
+def _try_load_checkpoint() -> object | None:
     """Attempt to load a local model checkpoint if it exists and is usable.
 
     Returns the loaded module if compatible, otherwise None.
     """
+    if torch is None:
+        return None
     if not _CHECKPOINT_PATH.exists():
         return None
 
@@ -133,7 +139,7 @@ class FloodDetectionService:
 
     def __init__(self) -> None:
         self.name = "Flood Detection Service"
-        self.model: torch.nn.Module | None = None
+        self.model: object | None = None
         self.model_loaded = False
         self.threshold = 0.52  # validation-selected default
         self.model_name = "aquascope-floodnet"
