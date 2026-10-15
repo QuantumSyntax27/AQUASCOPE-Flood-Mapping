@@ -8,6 +8,7 @@ import {
 } from 'react';
 import type { AnalysisParams, AnalysisResult, AnalysisStageState } from '../types';
 import type { ReportData } from '../types';
+import { generateReportData } from '../services/mockApi';
 
 interface AnalysisContextValue {
   params: AnalysisParams | null;
@@ -77,7 +78,7 @@ export function AnalysisProvider({ children }: { children: ReactNode }) {
     }
     setStatus('completed');
     try {
-      sessionStorage.setItem(STORAGE_KEY, JSON.stringify({ params: p, result: res }));
+      sessionStorage.setItem(STORAGE_KEY, JSON.stringify({ params: p, result: result }));
     } catch {
       /* storage may be unavailable; analysis still works in-memory */
     }

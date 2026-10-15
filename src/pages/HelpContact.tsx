@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { classNames } from '../utils/geo';
 import { Badge, Button, Card, CardHeader } from '../components/ui';
 import { PageHeader } from '../components/layout/PageHeader';
 import { Link } from 'react-router-dom';
@@ -132,7 +133,7 @@ export function HelpContact() {
     new Set(faqItems.map((item) => item.id)),
   );
   const [searchQuery, setSearchQuery] = useState('');
-  const [searchResults, setSearchResults] = useState<faqItems | null>(null);
+  const [searchResults, setSearchResults] = useState<typeof faqItems | null>(null);
   const [showAskQuestion, setShowAskQuestion] = useState(false);
   const [askAnswer, setAskAnswer] = useState<string | null>(null);
 
@@ -211,7 +212,7 @@ export function HelpContact() {
               {faqItems.map((item) => (
                 <div key={item.id} className="border-b border-navy-800/50 last:border-0">
                   <button
-                    onClick={() => setFaqExpanded((prev) => prev.has(item.id) ? prev.delete(item.id) : prev.add(item.id))}
+                    onClick={() => setFaqExpanded((prev) => new Set(prev.has(item.id) ? [...prev].filter(id => id !== item.id) : [...prev, item.id]))}
                     className={classNames(
                       'w-full text-left padding-2 text-left cursor-pointer select-none',
                       faqExpanded.has(item.id) ? 'after:content-after-before after:before:absolute after:before:left-0 after:before/w-1/2 after:before rounded-md after:before:bg-navy-800 after:before:text-white after:content-[' + '"' + '▼' + ']' + ']' : ''
@@ -253,7 +254,7 @@ export function HelpContact() {
 
               {searchResults && searchResults.length > 0 && (
                 <div className="mt-3 space-y-3 max-w-lg">
-                  {searchResults.map((item) => (
+                  {searchResults.map((item: typeof faqItems[0]) => (
                     <div key={item.id} className="p-3 rounded-lg bg-navy-800/50">
                       <h4 className="font-medium text-white line-clamp-2">{item.question}</h4>
                       <p className="text-[12px] text-navy-400 line-clamp-3">{item.answer}</p>
